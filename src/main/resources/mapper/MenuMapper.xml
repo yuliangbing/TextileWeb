@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.technology.textile.web.mapper.MenuDao">
+
+	<!-- 开启二级缓存 -->
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.technology.textile.web.entity.Menu">
+		<id column="id" property="id" />
+		<result column="menu_str" property="menuStr" />
+		<result column="menu_num" property="menuNum" />
+		<result column="parent_id" property="parentId" />
+		<result column="parent_str" property="parentStr" />
+		<result column="parent_num" property="parentNum" />
+		<result column="menu_order" property="menuOrder" />
+		<result column="url" property="url" />
+		<result column="icon" property="icon" />
+		<result column="remark" property="remark" />
+		<result column="status" property="status" />
+		<result column="show_type" property="showType" />
+		<result column="is_init" property="isInit" />
+		<result column="create_id" property="createId" />
+		<result column="create_user" property="createUser" />
+		<result column="create_time" property="createTime" />
+		<result column="modify_id" property="modifyId" />
+		<result column="modify_user" property="modifyUser" />
+		<result column="modify_time" property="modifyTime" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, menu_str AS menuStr, menu_num AS menuNum, parent_id AS parentId, parent_str AS parentStr, parent_num AS parentNum, menu_order AS menuOrder, url, icon, remark, status, show_type AS showType, is_init AS isInit, create_id AS createId, create_user AS createUser, create_time AS createTime, modify_id AS modifyId, modify_user AS modifyUser, modify_time AS modifyTime
+    </sql>
+
+</mapper>
