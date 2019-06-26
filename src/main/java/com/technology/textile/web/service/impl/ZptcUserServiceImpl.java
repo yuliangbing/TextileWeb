@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ZptcUserServiceImpl implements ZptcUserService {
 	
+	//数据持久化层
 	@Autowired
 	private ZptcUserDao zptcUserDao;
 
