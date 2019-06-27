@@ -5,6 +5,9 @@ import com.technology.textile.web.mapper.ZptcUserDao;
 import com.technology.textile.web.service.ZptcUserService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +35,12 @@ public class ZptcUserServiceImpl implements ZptcUserService {
 			flag = true;
 		}
 		return flag;
+	}
+
+	@Override
+	public List<ZptcUser> getList(Map<String, Object> par) {
+		// TODO Auto-generated method stub
+		return zptcUserDao.getList(par);
 	}
 	
 }

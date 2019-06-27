@@ -3,10 +3,11 @@
 <mapper namespace="com.technology.textile.web.mapper.ZptcUserDao">
 
 	<!-- 开启二级缓存 -->
-	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache" />
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.technology.textile.web.entity.ZptcUser">
+	<resultMap id="BaseResultMap"
+		type="com.technology.textile.web.entity.ZptcUser">
 		<id column="id" property="id" />
 		<result column="tea_name" property="teaName" />
 		<result column="tea_code" property="teaCode" />
@@ -19,9 +20,24 @@
 		<result column="status" property="status" />
 	</resultMap>
 
-    <!-- 通用查询结果列 -->
-    <sql id="Base_Column_List">
-        id, tea_name AS teaName, tea_code AS teaCode, tel, role_id AS roleId, role_name AS roleName, password, register_time AS registerTime, modify_time AS modifyTime, status
-    </sql>
+	<!-- 通用查询结果列 -->
+	<sql id="Base_Column_List">
+		id, tea_name AS teaName, tea_code AS teaCode, tel, role_id AS roleId,
+		role_name AS roleName, password, register_time AS registerTime,
+		modify_time AS modifyTime, status
+	</sql>
 
+	<select id="getList" resultMap="BaseResultMap"
+		parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from zptc_user
+		where 1=1
+		<if test="teaName != null and teaName != ''">
+			tea_name like #{teaName,jdbcType=VARCHAR}
+		</if>
+		<if test="teaCode != null and teaCode != ''">
+			tea_code = #{teaCode,jdbcType=VARCHAR}
+		</if>
+	</select>
 </mapper>

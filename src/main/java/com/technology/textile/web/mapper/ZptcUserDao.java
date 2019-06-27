@@ -1,5 +1,8 @@
 package com.technology.textile.web.mapper;
 
+import java.util.List;
+import java.util.Map;
+
 import com.technology.textile.web.entity.ZptcUser;
 import com.technology.textile.web.util.MyMapper;
 
@@ -13,4 +16,5 @@ import com.technology.textile.web.util.MyMapper;
  */
 public interface ZptcUserDao extends MyMapper<ZptcUser> {
 
+	public List<ZptcUser> getList(Map<String, Object> par);
 }
